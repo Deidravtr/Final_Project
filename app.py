@@ -29,5 +29,21 @@ def new_user():
     return "ok"
 
 
+@app.route("/login", methods=["GET"])
+def login():
+    username = request.values.get("username")
+    password = request.values.get("password")
+    true_or_false = authentication.authenticate(username, password)
+    true_or_false = str(true_or_false)
+    if true_or_false == "Username does not exist":
+        username_does_not_exist = "username_does_not_exist"
+        return render_template("exception_handling.html", username_does_not_exist=username_does_not_exist)
+    elif true_or_false == "You are locked out of the system":
+        locked_out = "locked_out"
+        return render_template("exception_handling.html", locked_out=locked_out)
+    elif true_or_false == "Welcome to the top secret system.":
+        return render_template("controller.html")
+
+
 if __name__ == '__main__':
     app.run()
