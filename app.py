@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 from authentication import Authentication
+from drone_controller import DroneController
 authentication = Authentication()
+drone_controller = DroneController()
+
 
 app = Flask(__name__)
 
