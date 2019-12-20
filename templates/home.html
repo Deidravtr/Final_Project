@@ -1,19 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sample</title>
+    <title>Home</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+    <style>
+        .jumbotron{
+        text-align: center
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+    <div class="jumbotron">
+        ********************<br>
+        Secure System Access<br>
+        ********************<br>
+        <hr class="my-4">
+        Please select from the following options: <br>
+        <form action="/routing" method="get">
+            <input type="radio" name="login" value="login">Login<br>
+            <input type="radio" name="new_user_account" value="new_user_account">New User Account<br>
+            <input type="submit", value="Submit">
+        </form>
+    </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 </body>
 </html>
