@@ -63,5 +63,16 @@ def login():
         return render_template("controller.html")
 
 
+@app.route("/add_drone", methods=["GET"])
+def add_drone():
+    drone_name = request.values.get("new_drone_name")
+    test = drone_controller.add_drone(drone_name)
+    test = str(test)
+    if test == "Drone already exists":
+        return "won't work"
+    else:
+        return "yes / create print function here"
+
+
 if __name__ == '__main__':
     app.run()
