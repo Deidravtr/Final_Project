@@ -90,5 +90,20 @@ def move_drone():
     return "create print function here"
 
 
+@app.route("/get_distance", methods=["GET"])
+def drone_distance():
+    first_drone = request.values.get("first_drone")
+    second_drone = request.values.get("second_drone")
+    dist = drone_controller.drone_distance(first_drone, second_drone)
+    if dist == "Drone not found":
+        drone_not_found = "drone_not_found"
+        return render_template("exception_handling.html", drone_not_found=drone_not_found)
+    elif dist == "First Drone not found":
+        first_drone_not_found = "fist_drone_not_found"
+        return render_template("exception_handling.html", first_drone_not_found=first_drone_not_found)
+    dist = float(dist)
+    return render_template("get_distance.html", dist=dist)
+
+
 if __name__ == '__main__':
     app.run()

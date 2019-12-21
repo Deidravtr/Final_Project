@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Distance</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+    .jumbotron {
+    text-align: center
+    }
+    </style>
+
+</head>
+<body>
+
+    {% if dist %}
+        The drones are {{ dist }} meters apart<br>
+    <a href="/">Main Menu</a>
+    {% else %}
+        <div class="container">
+            <div class="jumbotron">
+                ************<br>
+                Get Distance<br>
+                ************<br>
+                <hr class="my-4">
+                <fieldset>
+                    <legend>Enter the drones that you would like to know the distance of:</legend>
+                    <form action="/get_distance">
+                        Enter the first drone:<br>
+                        <input type="text" name="first_drone"><br>
+                        Enter the second drone:<br>
+                        <input type="text" name="second_drone"><br>
+                        <input type="submit">
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
