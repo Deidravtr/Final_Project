@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move Drone</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+        .jumbotron {
+        text-align: center
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            **********<br>
+            Move Drone<br>
+            **********<br>
+            <hr class="my-4">
+            <fieldset>
+                <legend>Input drone data. Note that the drone will NOT move to the location that you put in, instead it adds it to the already existing location.</legend>
+                <form action="/move_drone">
+                    Enter the name of a drone to move:<br>
+                    <input type="text" name="drone_to_move"><br>
+                    Move x:<br>
+                    <input type="text" name="x"><br>
+                    Move y:<br>
+                    <input type="text" name="y"><br>
+                    <input type="submit">
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

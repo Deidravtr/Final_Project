@@ -74,5 +74,21 @@ def add_drone():
         return "yes / create print function here"
 
 
+@app.route("/move_drone", methods=["GET"])
+def move_drone():
+    drone_to_move = request.values.get("drone_to_move")
+    if drone_to_move == "move_drone_not_found":
+        move_drone_not_found = "move_drone_not_found"
+        return render_template("exception_handling.html", move_drone_not_found=move_drone_not_found)
+    try:
+        move_x = int(request.values.get("x"))
+        move_y = int(request.values.get("y"))
+    except ValueError:
+        value_error = "value_error"
+        return render_template("exception_handling.html", value_error=value_error)
+    drone_controller.move_drone(drone_to_move, move_x, move_y)
+    return "create print function here"
+
+
 if __name__ == '__main__':
     app.run()
