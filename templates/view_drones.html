@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Drones</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+        .print_drone {
+        font: serif
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        {% for drone in display %}
+
+        <h3 class="print_drone">{{ drone[0] }} : {{ drone[1] }}, {{ drone[2] }}</h3>
+
+        {% endfor %}
+        <a href="/">Main Menu</a>
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

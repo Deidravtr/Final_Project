@@ -14,7 +14,26 @@
 </head>
 <body>
     {% if username_does_not_exist %}
-        Username does not exist, please try again.
+        <div class="container">
+        <div class="jumbotron">
+            *****<br>
+            Login<br>
+            *****<br>
+            <hr class="my-4">
+            <fieldset>
+                <legend>Username does not exist, please try again</legend>
+                <form action="/login">
+                    Enter your username: <br>
+                    <input type="text" name="username">
+                    <br>Enter your password: <br>
+                    <input type="text" name="password">
+                    <br>
+                    <input type="submit">
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
     {% elif locked_out %}
         You are locked out of the system.
     {% elif username_already_exists %}
@@ -76,6 +95,22 @@
                     </form>
                 </fieldset>
             </div>
+        </div>
+    {% elif does_not_work %}
+        <div class="container">
+        <div class="jumbotron">
+            ***********<br>
+            Add a Drone<br>
+            ***********<br>
+            <hr class="my-4">
+            <fieldset>
+                <legend>Enter the name of the drone you want to add (Drone already exists)</legend>
+                <form action="/add_drone">
+                    <input type="text" name="new_drone_name">
+                    <input type="submit">
+                </form>
+            </fieldset>
+        </div>
         </div>
     {% elif drone_not_found %}
             <div class="container">

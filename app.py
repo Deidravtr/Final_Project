@@ -27,7 +27,7 @@ def routing2():
         return render_template("add_drone.html")
     elif request.values.get("view_drone"):
         display = drone_controller.display_drones()
-        return "ok"
+        return render_template("view_drones.html", display=display)
     elif request.values.get("move_drone"):
         return render_template("move_drone.html")
     elif request.values.get("get_distance"):
@@ -44,7 +44,9 @@ def new_user():
     if true_or_false == "Username already exists":
         username_already_exists = "username_already_exists"
         return render_template("exception_handling.html", username_already_exists=username_already_exists)
-    return "ok"
+    else:
+        display = drone_controller.display_drones()
+        return render_template("view_drones.html", display=display)
 
 
 @app.route("/login", methods=["GET"])
@@ -69,9 +71,11 @@ def add_drone():
     test = drone_controller.add_drone(drone_name)
     test = str(test)
     if test == "Drone already exists":
-        return "won't work"
+        does_not_work = "does_not_work"
+        return render_template("exception_handling.html", does_not_work=does_not_work)
     else:
-        return "yes / create print function here"
+        display = drone_controller.display_drones()
+        return render_template("view_drones.html", display=display)
 
 
 @app.route("/move_drone", methods=["GET"])
@@ -87,7 +91,8 @@ def move_drone():
         value_error = "value_error"
         return render_template("exception_handling.html", value_error=value_error)
     drone_controller.move_drone(drone_to_move, move_x, move_y)
-    return "create print function here"
+    display = drone_controller.display_drones()
+    return render_template("view_drones.html", display=display)
 
 
 @app.route("/get_distance", methods=["GET"])

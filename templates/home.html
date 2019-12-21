@@ -5,26 +5,38 @@
     <title>Home</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     <style>
-        .jumbotron{
+        .jumbotron {
         text-align: center
         }
     </style>
 </head>
 <body>
     <div class="container">
-    <div class="jumbotron">
-        ********************<br>
-        Secure System Access<br>
-        ********************<br>
-        <hr class="my-4">
-        Please select from the following options: <br>
-        <form action="/routing" method="get">
-            <input type="radio" name="routing_button" value="login">Login<br>
-            <input type="radio" name="routing_button" value="new_user_account">New User Account<br>
-            <input type="submit", value="Submit">
-        </form>
-    </div>
+        <div class="jumbotron">
+            ********************<br>
+            Secure System Access<br>
+            ********************<br>
+            <hr class="my-4">
+            <div class="container">
+                <div class="row fill">
+                    <div class="col">
+                        Once you login successfully you will get access to the drone controller.
+                    </div>
+                    <div class="col">
+                        <fieldset>
+                            <legend>Please select from the following options:</legend>
+                            <form action="/routing" method="get">
+                                <input type="radio" name="login" value="login">Login<br>
+                                <input type="radio" name="new_user_account" value="new_user_account">New User Account<br>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

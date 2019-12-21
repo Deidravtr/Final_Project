@@ -227,6 +227,6 @@ class DroneController:
                 if XandY is 1:
                     y = int(location[XandY])
             # Print drone info
-            display = (name_of_drone + ":", x, ",", y)
+            display = (name_of_drone, x, y)
             drone_display.append(display)
-
+        return drone_display
