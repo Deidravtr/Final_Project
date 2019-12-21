@@ -21,6 +21,21 @@ def routing():
         return render_template("new_user_account.html")
 
 
+@app.route("/routing2", methods=["GET"])
+def routing2():
+    if request.values.get("add_drone"):
+        return render_template("add_drone.html")
+    elif request.values.get("view_drone"):
+        display = drone_controller.display_drones()
+        return "ok"
+    elif request.values.get("move_drone"):
+        return render_template("move_drone.html")
+    elif request.values.get("get_distance"):
+        return render_template("get_distance.html")
+    else:
+        return render_template("home.html")
+
+
 @app.route("/new_user", methods=["GET"])
 def new_user():
     username = request.values.get("username")
