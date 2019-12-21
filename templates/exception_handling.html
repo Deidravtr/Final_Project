@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+    .jumbotron {
+    text-align: center
+    }
+    </style>
+</head>
+<body>
+    {% if username_does_not_exist %}
+        Username does not exist, please try again.
+    {% elif locked_out %}
+        You are locked out of the system.
+    {% elif username_already_exists %}
+        <div class="container">
+            <div class="jumbotron">
+                *************<br>
+                New User Menu<br>
+                *************<br>
+                <hr class="my-4">
+                <fieldset>
+                    <legend>That username already exists, please try again.</legend>
+                        <form action="/new_user">
+                            Enter new username: <br>
+                            <input type="text" name="username">
+                            <br>Enter new password: <br>
+                            <input type="text" name="password">
+                            <br>
+                            <input type="submit">
+                        </form>
+                </fieldset>
+            </div>
+        </div>
+    {% elif value_error %}
+        <div class="container">
+            <div class="jumbotron">
+                **********<br>
+                Move Drone<br>
+                **********<br>
+                <hr class="my-4">
+                <fieldset>
+                    <legend>Input drone data. Note that the drone will NOT move to the location that you put in, instead it adds it to the already existing location.</legend>
+                    <form action="/move_drone">
+                        Enter the name of a drone to move:<br>
+                        <input type="text" name="drone_to_move"><br>
+                        Move x (Invalid Value Entered):<br>
+                        <input type="text" name="x"><br>
+                        Move y (Invalid Value Entered):<br>
+                        <input type="text" name="y"><br>
+                        <input type="submit">
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    {% elif first_drone_not_found %}
+        <div class="container">
+            <div class="jumbotron">
+                ************<br>
+                Get Distance<br>
+                ************<br>
+                <hr class="my-4">
+                <fieldset>
+                    <legend>Enter the drones that you would like to know the distance of:</legend>
+                    <form action="/get_distance">
+                        Enter the first drone (drone not found):<br>
+                        <input type="text" name="first_drone"><br>
+                        Enter the second drone:<br>
+                        <input type="text" name="second_drone"><br>
+                        <input type="submit">
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    {% elif drone_not_found %}
+            <div class="container">
+            <div class="jumbotron">
+                ************<br>
+                Get Distance<br>
+                ************<br>
+                <hr class="my-4">
+                <fieldset>
+                    <legend>Enter the drones that you would like to know the distance of:</legend>
+                    <form action="/get_distance">
+                        Enter the first drone:<br>
+                        <input type="text" name="first_drone"><br>
+                        Enter the second drone (drone not found):<br>
+                        <input type="text" name="second_drone"><br>
+                        <input type="submit">
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    {% elif move_drone_not_found %}
+        <div class="container">
+            <div class="jumbotron">
+                **********<br>
+                Move Drone<br>
+                **********<br>
+                <hr class="my-4">
+                <fieldset>
+                    <legend>Input drone data. Note that the drone will NOT move to the location that you put in, instead it adds it to the already existing location.</legend>
+                    <form action="/move_drone">
+                        Enter the name of a drone to move (drone not found):<br>
+                        <input type="text" name="drone_to_move"><br>
+                        Move x:<br>
+                        <input type="text" name="x"><br>
+                        Move y:<br>
+                        <input type="text" name="y"><br>
+                        <input type="submit">
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
